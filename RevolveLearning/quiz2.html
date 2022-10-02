@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Level 2
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav style="background-color: #f5f5f5; font-size: 17.5px;" class="navbar navbar-expand-sm justify-content-center navbar-light sticky-top">
+
+            <!-- Links -->
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a style="margin-right: 30px;" class="nav-link" href="lesson1.html">Level 1</a>
+              </li>
+              <li class="nav-item">
+                <a style="margin-right: 30px; color: #f5f5f5" class="nav-link active" href="#">Level 2</a>
+              </li>
+              <li class="nav-item">
+                <a style="margin-right: 30px; display: none;" class="nav-link" id="next" href="lesson3.html">Level 3</a>
+              </li>
+              <li class="nav-item">
+                <a style="display: none;" class="nav-link" href="lesson4.html">Level 4</a>
+              </li>
+            </ul>
+          
+        </nav>
+        <div class="container" style="font-family: 'Poppins'; font-size: 15px; margin: 30px auto; width: 85%; padding: 20px; border: 2.5px solid black">
+            <p> <br>
+                <span class="header">What's the full form of TPS?</span> <br> <br>
+                <input type="radio" id="ther_prot_sys" name="tps_full" value="Thermal_Protection_System">
+                <label for="ther_prot_sys">Thermal Protection System</label><br>
+                <input type="radio" id="ther_prot_shield" name="tps_full" value="Thermal_Protection_Shield">
+                <label for="ther_prot_shield">Thermal Protection Shield</label><br>
+                <input type="radio" id="temp_prot_sys" name="tps_full" value="Temperature_Protection_System">
+                <label for="temp_prot_sys">Temperature Protection System</label>
+                <h2 class="right-ans-text" id="q1_right">Right Answer!</h2>
+                <h2 class="wrong-ans-text" id="q1_wrong">Correct Answer: Thermal Protection System</h2>
+            </p>
+        </div>
+        <div class="container" style="font-family: 'Poppins'; font-size: 15px; margin: 30px auto; width: 85%; padding: 20px; border: 2.5px solid black">
+            <p> <br>
+                <span class="header">What are the 2 devices used in the SWEAP to collect observations?</span> <br> <br>
+                <input type="radio" id="spc_spa" name="sweap_two" value="SPC_SPA">
+                <label for="spc_spa">Solar Probe Cup, Solar Probe Analyzer</label><br>
+                <input type="radio" id="spc_spd" name="sweap_two" value="SPC_SPD">
+                <label for="spc_spd">Solar Probe Cup, Solar Probe Detector</label><br>
+                <input type="radio" id="spd_spa" name="sweap_two" value="SPD_SPA">
+                <label for="spd_spa">Solar Probe Detector, Solar Probe Analyzer</label>
+                <h2 class="right-ans-text" id="q2_right">Right Answer!</h2>
+                <h2 class="wrong-ans-text" id="q2_wrong">Correct Answer: Solar Probe Cup, Solar Probe Analyzer</h2>
+            </p>
+        </div>
+        <div class="container text-left">
+            <button class="btn btn-success" onclick="submitFunc()">Submit</button>
+        </div>
+        <script>
+            var correct = 0;
+            function submitFunc() {
+                if (document.getElementById('ther_prot_sys').checked == true) {
+                    document.getElementById('q1_right').style.display = "block";
+                    correct++;
+                }
+                else if (document.getElementById('ther_prot_sys').checked == false) {
+                    document.getElementById('q1_wrong').style.display = "block";
+                }
+                if (document.getElementById('spc_spa').checked == true) {
+                    document.getElementById('q2_right').style.display = "block";
+                    correct++;
+                }
+                else if (document.getElementById('spc_spa').checked == false) {
+                    document.getElementById('q2_wrong').style.display = "block";
+                }
+                if (correct >= 2) {
+                    document.getElementById('next').style.display = "block";
+                    window.setTimeout(function () {
+                        window.location="lesson3.html";
+                    }, 2500)
+                }
+            }
+        </script>
+    </body>
+</html>
